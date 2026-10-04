@@ -29,8 +29,8 @@ const OTHER_LINKS = [
 
 const INFO_LINKS = [
   { label: "info@enlauncher.com", href: "mailto:info@enlauncher.com", icon: MailIcon },
-  { label: "+1 437 955 9142 · +234 703 532 1043", href: "tel:+14379559142", icon: PhoneIcon },
-  { label: "Canada, ON · Nigeria, ABJ", href: "https://www.google.com/maps", icon: LocationIcon },
+  { label: "+1 437 955 9142\n+234 703 532 1043", href: "tel:+14379559142", icon: PhoneIcon },
+  { label: "Canada, ON\nNigeria, ABJ", href: "https://www.google.com/maps", icon: LocationIcon },
 ];
 
 export function Footer({ showBackground = true }: { showBackground?: boolean }) {
@@ -115,10 +115,10 @@ export function Footer({ showBackground = true }: { showBackground?: boolean }) 
                       rel="noopener"
                       className="flex items-center gap-2.5 text-base font-medium tracking-tight text-white/60 transition-colors hover:text-white"
                     >
-                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 backdrop-blur-[100px]">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-[100px]">
                         <Icon size={16} className="text-white" />
                       </span>
-                      {label}
+                      <span className="whitespace-pre-line">{label}</span>
                     </a>
                   </li>
                 ))}
