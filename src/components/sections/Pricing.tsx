@@ -58,15 +58,14 @@ export function Pricing() {
           {PRICING.map((p, i) => {
             const open = openMobile === i;
             return (
-              <div
-                key={p.name}
-                className="overflow-hidden rounded-xl border border-white/5 bg-white/5 backdrop-blur-[10px]"
-              >
+              <div key={p.name} className="flex flex-col gap-3">
                 <button
                   onClick={() => setOpenMobile(open ? -1 : i)}
                   className={cn(
-                    "flex w-full items-center justify-between gap-3 p-5 text-left transition-colors",
-                    open && "bg-[linear-gradient(135deg,#0a6631_0%,#bff747_100%)]"
+                    "flex w-full items-center justify-between gap-3 overflow-hidden rounded-xl border border-white/5 p-5 text-left backdrop-blur-[10px] transition-colors",
+                    open
+                      ? "bg-[linear-gradient(135deg,#0a6631_0%,#bff747_100%)]"
+                      : "bg-white/5"
                   )}
                 >
                   <div className="flex flex-col gap-1">
@@ -103,7 +102,7 @@ export function Pricing() {
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="p-5 pt-0">
+                      <div className="rounded-xl border border-white/5 bg-white/5 p-5 backdrop-blur-[10px]">
                         <PlanDetail plan={p} />
                       </div>
                     </motion.div>
