@@ -85,7 +85,7 @@ export function Pricing() {
                   {plan.tagline}
                 </p>
               </div>
-              <span className="rounded-full bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.02em] text-white">
+              <span className="shrink-0 whitespace-nowrap rounded-full bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.02em] text-white">
                 {plan.tag}
               </span>
             </div>
