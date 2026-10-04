@@ -9,8 +9,37 @@ import { CheckIcon } from "@/components/Icons";
 import { PRICING } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
+function PlanDetail({ plan }: { plan: (typeof PRICING)[number] }) {
+  return (
+    <div className="flex flex-col gap-7 pt-6">
+      <p className="text-[15px] font-medium leading-[1.6em] tracking-[-0.03em] text-white/60">
+        {plan.tagline}
+      </p>
+      <div className="grid grid-cols-1 gap-x-5 gap-y-3 sm:grid-cols-2">
+        {plan.features.map((f) => (
+          <div key={f} className="flex items-center gap-2">
+            <CheckIcon size={24} className="shrink-0 text-white" />
+            <span className="text-[15px] font-medium leading-[1.6em] tracking-[-0.03em] text-white/60">
+              {f}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="grid grid-cols-1 items-center gap-2.5 sm:grid-cols-2">
+        <Button href="/contact" variant="green" className="w-full">
+          Start a conversation
+        </Button>
+        <p className="text-[15px] font-medium leading-[1.6em] tracking-[-0.03em] text-white/60">
+          No contracts · Cancel anytime
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function Pricing() {
   const [active, setActive] = useState(0);
+  const [openMobile, setOpenMobile] = useState(0);
   const reduce = useReducedMotion();
   const plan = PRICING[active];
 
@@ -24,7 +53,69 @@ export function Pricing() {
           </h2>
         </div>
 
-        <div className="flex w-full max-w-[1000px] flex-col gap-3.5 lg:flex-row">
+        {/* Mobile: accordion */}
+        <div className="flex w-full flex-col gap-3 lg:hidden">
+          {PRICING.map((p, i) => {
+            const open = openMobile === i;
+            return (
+              <div
+                key={p.name}
+                className="overflow-hidden rounded-xl border border-white/5 bg-white/5 backdrop-blur-[10px]"
+              >
+                <button
+                  onClick={() => setOpenMobile(open ? -1 : i)}
+                  className={cn(
+                    "flex w-full items-center justify-between gap-3 p-5 text-left transition-colors",
+                    open && "bg-[linear-gradient(135deg,#0a6631_0%,#bff747_100%)]"
+                  )}
+                >
+                  <div className="flex flex-col gap-1">
+                    <span className="text-xs font-medium tracking-tight text-white/60">
+                      {p.number}
+                    </span>
+                    <p className="text-xl leading-[1.125em] tracking-[-0.02em] text-white" style={{ fontFamily: "var(--font-averia)", fontWeight: 700 }}>
+                      {p.name}
+                    </p>
+                    <div className="flex items-center gap-1">
+                      <span className="text-sm font-medium tracking-tight text-white">
+                        {p.price}
+                      </span>
+                      <span className="text-sm font-medium tracking-tight text-white/60">
+                        / month
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-white"
+                    aria-hidden
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ transform: open ? "rotate(180deg)" : "none", transition: "transform 0.25s" }}>
+                      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <AnimatePresence initial={false}>
+                  {open && (
+                    <motion.div
+                      initial={reduce ? false : { height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-5 pt-0">
+                        <PlanDetail plan={p} />
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop: tabs + panel */}
+        <div className="hidden w-full max-w-[1000px] gap-3.5 lg:flex lg:flex-row">
           {/* Tabs */}
           <div className="flex w-full flex-col justify-between gap-3 lg:max-w-[275px]">
             {PRICING.map((p, i) => (
@@ -38,7 +129,6 @@ export function Pricing() {
                     : "bg-white/5"
                 )}
               >
-                {/* Same gradient, softer, on hover for inactive tabs */}
                 {i !== active && (
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,#0a6631_0%,#bff747_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-60" />
                 )}
