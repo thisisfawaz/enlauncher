@@ -29,7 +29,7 @@ const OTHER_LINKS = [
 
 const INFO_LINKS = [
   { label: "info@enlauncher.com", href: "mailto:info@enlauncher.com", icon: MailIcon },
-  { label: "+234 703 532 1043", href: "tel:+2347035321043", icon: PhoneIcon },
+  { label: "+1 437 955 9142 · +234 703 532 1043", href: "tel:+14379559142", icon: PhoneIcon },
   { label: "Canada, ON · Nigeria, ABJ", href: "https://www.google.com/maps", icon: LocationIcon },
 ];
 

@@ -13,8 +13,8 @@ const INFO = [
   },
   {
     label: "Phone",
-    value: "+234 703 532 1043",
-    href: "tel:+2347035321043",
+    value: "+1 437 955 9142\n+234 703 532 1043",
+    href: "tel:+14379559142",
     icon: PhoneIcon,
   },
   {
