@@ -4,7 +4,7 @@ import { Footer } from "@/components/sections/Footer";
 
 export default function NotFound() {
   return (
-    <main className="relative flex min-h-screen w-full flex-col items-center bg-ink">
+    <main className="relative flex min-h-screen w-full flex-col items-center overflow-x-clip bg-ink">
       <Navbar />
       <section className="relative flex min-h-[70vh] w-full flex-col items-center justify-center gap-6 px-5">
         <div className="flex items-center gap-2">

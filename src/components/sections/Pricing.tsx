@@ -26,7 +26,7 @@ export function Pricing() {
 
         <div className="flex w-full max-w-[1000px] flex-col gap-3.5 lg:flex-row">
           {/* Tabs */}
-          <div className="flex w-full max-w-[275px] flex-col justify-between gap-3">
+          <div className="flex w-full flex-col justify-between gap-3 lg:max-w-[275px]">
             {PRICING.map((p, i) => (
               <button
                 key={p.name}

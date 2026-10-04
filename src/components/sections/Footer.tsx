@@ -67,7 +67,7 @@ export function Footer({ showBackground = true }: { showBackground?: boolean }) 
           </div>
 
           {/* Link columns */}
-          <div className="flex w-full max-w-[600px] gap-2.5">
+          <div className="flex w-full max-w-[600px] flex-col gap-6 sm:flex-row sm:gap-2.5">
             <div className="flex flex-1 flex-col gap-6">
               <p className="text-xl leading-[1.125em] tracking-[-0.02em] text-white" style={{ fontFamily: "var(--font-averia)", fontWeight: 700 }}>
                 Main Links
@@ -134,7 +134,7 @@ export function Footer({ showBackground = true }: { showBackground?: boolean }) 
             style={{
               fontFamily: "var(--font-averia)",
               fontWeight: 700,
-              fontSize: "clamp(120px, 17vw, 224px)",
+              fontSize: "clamp(34px, 13vw, 224px)",
             }}
           >
             Enlauncher
