@@ -28,9 +28,9 @@ const OTHER_LINKS = [
 ];
 
 const INFO_LINKS = [
-  { label: "testing@gmail.com", href: "mailto:testing@gmail.com", icon: MailIcon },
-  { label: "+1 234 567 890", href: "tel:+1234567890", icon: PhoneIcon },
-  { label: "Asterdem, NL", href: "https://maps.app.goo.gl/BQZR5eSnnjG1gJoT6", icon: LocationIcon },
+  { label: "info@enlauncher.com", href: "mailto:info@enlauncher.com", icon: MailIcon },
+  { label: "+234 703 532 1043", href: "tel:+2347035321043", icon: PhoneIcon },
+  { label: "Canada, ON · Nigeria, ABJ", href: "https://www.google.com/maps", icon: LocationIcon },
 ];
 
 export function Footer({ showBackground = true }: { showBackground?: boolean }) {

@@ -7,20 +7,20 @@ import { MailIcon, PhoneIcon, LocationIcon } from "@/components/Icons";
 const INFO = [
   {
     label: "Email",
-    value: "testing@gmail.com",
-    href: "mailto:testing@gmail.com",
+    value: "info@enlauncher.com",
+    href: "mailto:info@enlauncher.com",
     icon: MailIcon,
   },
   {
     label: "Phone",
-    value: "+1 234 567 890",
-    href: "tel:+1234567890",
+    value: "+234 703 532 1043",
+    href: "tel:+2347035321043",
     icon: PhoneIcon,
   },
   {
-    label: "Location",
-    value: "Asterdem, NL",
-    href: "https://maps.app.goo.gl/BQZR5eSnnjG1gJoT6",
+    label: "Locations",
+    value: "Canada, ON\nNigeria, ABJ",
+    href: "https://www.google.com/maps",
     icon: LocationIcon,
   },
 ];
@@ -103,7 +103,7 @@ export function ContactForm() {
                     <span className="text-xs uppercase tracking-[0.02em] text-white/40">
                       {label}
                     </span>
-                    {value}
+                    <span className="whitespace-pre-line">{value}</span>
                   </span>
                 </a>
               </li>
